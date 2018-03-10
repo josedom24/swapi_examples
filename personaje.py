@@ -37,6 +37,11 @@ if r.status_code == 200:
 		print("Color del piel:",doc["results"][0]["skin_color"])
 		print("Color de los ojos:",doc["results"][0]["eye_color"])
 		print("Año de nacimiento:",doc["results"][0]["birth_year"])
-	
+		r=requests.get(doc["results"][0]["species"][0])
+		if r.status_code == 200:
+			doc = r.json()
+			print("Especie:",doc["name"])
+			
+
 else:
 	print("Error en la API")
