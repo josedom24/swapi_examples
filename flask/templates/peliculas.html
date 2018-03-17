@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>STAR WARS</h1>
+    <h2>Películas</h2>
+    <ul>
+    {% for dato in datos%}
+    
+    	<li><a href="{{url_for('peliculas_detalle',id=loop.index)}}">{{dato.title}}</a></li>
+    {%endfor%}
+    </ul>
+
+{% endblock %}
