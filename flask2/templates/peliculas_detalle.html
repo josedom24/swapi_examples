@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>STAR WARS</h1>
+    <h2>Películas</h2>
+    <ul>
+    	<li>Episodio:{{datos.episode_id}}</li>
+    	<li>Nombre:{{datos.title}}</li>
+    	<li>Como empieza:{{datos.opening_crawl}}</li>
+    	<li>Director:{{datos.director}}</li>
+    	<li>Productor:{{datos.producer}}</li>
+    	<li>Fecha de lanzamiento:{{datos.release_date}}</li>
+    </ul>
+    <ul>
+    	<li><a href="{{url_for('peliculas_personajes',id=id)}}">Personajes</a></li>
+        <li><a href="{{url_for('peliculas_planetas',id=id)}}">Planetas</a></li>
+    </ul>
+{% endblock %}

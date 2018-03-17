@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>STAR WARS</h1>
+    <ul>
+    	<li><a href="{{url_for('controlador',tipo="peliculas")}}">Películas</a></li>
+    	<li><a href="{{url_for('controlador',tipo="personajes")}}">Personajes</a></li>
+    	<li><a href="{{url_for('controlador',tipo="especies")}}">Especies</a></li>
+    	<li><a href="{{url_for('controlador',tipo="planetas")}}">Planetas</a></li>
+    	<li><a href="{{url_for('controlador',tipo="vehiculos")}}">Vehículos</a></li>
+    	<li><a href="{{url_for('controlador',tipo="naves")}}">Naves</a></li>
+    </ul>
+
+{% endblock %}
