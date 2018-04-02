@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>STAR WARS</h1>
-    <h2>Películas</h2>
+    <h2><a href="{{url_for('controlador',tipo=info.tipo)}}">{{info.titulo}}</a></h2>
     <ul>
-    	<li>Episodio:{{datos.episode_id}}</li>
-    	<li>Nombre:{{datos.title}}</li>
-    	<li>Como empieza:{{datos.opening_crawl}}</li>
-    	<li>Director:{{datos.director}}</li>
-    	<li>Productor:{{datos.producer}}</li>
-    	<li>Fecha de lanzamiento:{{datos.release_date}}</li>
+    	{% for dato in info.detalle%}
+            <li>{{dato.0}}{{datos[dato.1]|safe}}</li>
+        {% endfor %}
     </ul>
     <ul>
-    	<li><a href="{{url_for('peliculas_personajes',id=id)}}">Personajes</a></li>
-        <li><a href="{{url_for('peliculas_planetas',id=id)}}">Planetas</a></li>
+        {% for dato in info.listas%}
+    	<li><a href="{{url_for('datos',id=id,tipo1=info.tipo,tipo2=dato|lower)}}">{{dato}}</a></li>
+    {% endfor %}    
     </ul>
+
 {% endblock %}
+

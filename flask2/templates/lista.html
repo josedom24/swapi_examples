@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>STAR WARS</h1>
-    <h2><a href="{{url_for(url_return,id=id)}}">{{title}}</a></h2>
+    <h2><a href="{{url_for('detalle',id=id,tipo=tipo1)}}">{{title}}</a></h2>
     <h3>{{subtitle}}</h3>
     <ul>
     {% for dato,url in datos%}
