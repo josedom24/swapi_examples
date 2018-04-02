@@ -5,7 +5,7 @@
     <ul>
     {% for dato in datos%}
     
-    	<li><a href="{{url_for('peliculas_detalle',id=loop.index)}}">{{dato[info.nombre]}}</a></li>
+    	<li><a href="{{url_for('detalle',tipo=info.tipo,id=loop.index)}}">{{dato[info.nombre]}}</a></li>
     {%endfor%}
     </ul>
 
