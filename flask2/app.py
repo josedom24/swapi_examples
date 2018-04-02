@@ -91,7 +91,6 @@ def conv_urls(urls,tipo):
 	new_url=[]
 	for url in urls:
 		path=url.split("/")
-		print(path)
 		new_url.append('/'+tipo+'/'+path[len(path)-2])
 	return new_url
 
