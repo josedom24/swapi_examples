@@ -8,5 +8,11 @@
     	<li><a href="{{url_for('detalle',tipo=info.tipo,id=loop.index)}}">{{dato[info.nombre]}}</a></li>
     {%endfor%}
     </ul>
+    {% if next %}
+    <a href="{{next}}">Siguiente</a><br/>
+    {%endif %}
+    {% if previous %}
+    <a href="{{previous}}">Anterior</a>
+    {%endif %}
 
 {% endblock %}

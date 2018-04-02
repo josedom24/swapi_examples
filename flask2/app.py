@@ -10,10 +10,22 @@ def inicio():
 @app.route('/<string:tipo>')
 def controlador(tipo):
 	info=convtipo(tipo)
-	r=requests.get(URL_BASE+info["url"])
+	if "page" in request.args:
+		args="/?page="+request.args["page"]
+	else:
+		args=""
+	r=requests.get(URL_BASE+info["url"]+args)
 	if r.status_code == 200:
 		doc = r.json()    
-		return render_template("list.html",datos=doc["results"],info=info)
+		if doc["next"]!=None:
+			next=tipo+"?"+doc["next"].split("?")[1]
+		else:
+			next=""
+		if doc["previous"]!=None:
+			previous=tipo+"?"+doc["previous"].split("?")[1]
+		else:
+			previous=""
+		return render_template("list.html",datos=doc["results"],info=info,next=next,previous=previous)
 			
 @app.route('/<string:tipo>/<int:id>')
 def detalle(tipo,id):
